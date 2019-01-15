@@ -24,3 +24,7 @@ gcloud compute firewall-rules create default-puma-server-cli --allow tcp:9292 --
 
 testapp_IP = 35.228.253.93
 testapp_port = 9292
+
+В ветке packer-base был создан шаблон для образа reddit-base из ubuntu-1604 и двух скриптов.
+После этого был создан шаблон для образа reddit-full из reddit-base, приложения и systemd-сервиса.
+Создан скрипт для создания ВМ из образа reddit-full.
