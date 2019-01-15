@@ -10,7 +10,7 @@ User=appuser
 ExecStart=/usr/local/bin/puma
 Restart=on-failure
 RestartSec=30s
-WorkingDirectory=~/reddit/
+WorkingDirectory=/home/appuser/reddit/
 
 [Install]
 WantedBy=multi-user.target
