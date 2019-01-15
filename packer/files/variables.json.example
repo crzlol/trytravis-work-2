@@ -1,0 +1,6 @@
+{
+    "project_id": "study",
+    "source_image_family": "reddit-base",
+    "machine_type": "f1-micro",
+    "tags": "puma-server"
+}
