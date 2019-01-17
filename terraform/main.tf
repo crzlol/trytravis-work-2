@@ -34,7 +34,7 @@ resource "google_compute_instance" "app" {
     type        = "ssh"
     user        = "appuser"
     agent       = false
-    private_key = "${file("~/.ssh/id_rsa")}"
+    private_key = "${file(var.private_key_path)}"
   }
 
   provisioner "file" {
@@ -64,3 +64,10 @@ resource "google_compute_firewall" "firewall_puma" {
 
   # Правило применимо для инстансов с перечисленными тэгами
 }
+
+resource "google_compute_project_metadata" "default" {
+  metadata {
+    ssh-keys = "appuser1:${file(var.public_key_path)} appuser2:${file(var.public_key_path)}"
+  }
+}
+
