@@ -23,3 +23,8 @@ variable "zone" {
   description = "Zone"
   default     = "europe-north1-a"
 }
+
+variable "number" {
+  description = "Count of virtual mashines"
+  default     = 2
+}
