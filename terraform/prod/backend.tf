@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "crzlol-bucket-prod"
-    prefix  = "terraform/state"
+    bucket = "crzlol-bucket-prod"
+    prefix = "terraform/state"
   }
 }
