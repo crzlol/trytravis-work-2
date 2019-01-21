@@ -1,5 +1,5 @@
 resource "google_compute_instance" "app" {
-  name         = "reddit-app"
+  name         = "reddit-app-${var.env}"
   machine_type = "g1-small"
   zone         = "${var.zone}"
   tags         = ["reddit-app"]
@@ -44,11 +44,13 @@ resource "google_compute_firewall" "firewall_puma" {
 }
 
 resource "null_resource" "app" {
-  triggers {
-    environ = "prod"
+  count = "${var.env == "prod"? 1 : 0}"
+
+  connection {
+    host = "${google_compute_address.app_ip.address}"
   }
 
-    provisioner "file" {
+  provisioner "file" {
     source      = "../modules/deploy.sh"
     destination = "/home/appuser/deploy.sh"
 

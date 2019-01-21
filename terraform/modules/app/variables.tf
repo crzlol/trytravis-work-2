@@ -21,9 +21,5 @@ variable "db_internal_ip" {
 }
 
 variable "env" {
-  description = "Environement prod | stage | dev"
-}
-
-locals {
-  Environ = "${var.env}"
+  description = "Environement prod | stage"
 }
