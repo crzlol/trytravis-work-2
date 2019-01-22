@@ -1,17 +1,11 @@
 {
     "app": {
-        "sensitive": false,
-        "type": "string",
-        "hosts": "35.228.191.178"
+        "hosts": "35.228.137.89"
     },
     "db": {
-        "sensitive": false,
-        "type": "string",
-        "hosts": "35.228.253.93"
+        "hosts": "35.228.92.153"
     },
     "db_internal_ip": {
-        "sensitive": false,
-        "type": "string",
-        "hosts": "10.166.0.8"
+        "hosts": "10.166.0.6"
     }
 }
