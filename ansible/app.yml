@@ -21,4 +21,3 @@
   - name: reload puma
     systemd:
       daemon_reload: yes
-      
