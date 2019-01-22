@@ -5,3 +5,5 @@ packer/variables.json
 *.tfstate.backup
 *.tfvars
 .terraform/
+*.retry
+*.gcp.yml

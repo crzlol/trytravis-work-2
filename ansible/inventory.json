@@ -1,9 +1,17 @@
 {
     "app": {
-        "hosts": "appserver"
-        
-    }, 
+        "sensitive": false,
+        "type": "string",
+        "hosts": "35.228.191.178"
+    },
     "db": {
-        "hosts": "35.228.132.193"
+        "sensitive": false,
+        "type": "string",
+        "hosts": "35.228.253.93"
+    },
+    "db_internal_ip": {
+        "sensitive": false,
+        "type": "string",
+        "hosts": "10.166.0.8"
     }
 }
