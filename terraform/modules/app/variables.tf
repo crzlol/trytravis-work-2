@@ -19,3 +19,7 @@ variable app_disk_image {
 variable "db_internal_ip" {
   description = "Database ip address"
 }
+
+variable "env" {
+  description = "Environement prod | stage"
+}
