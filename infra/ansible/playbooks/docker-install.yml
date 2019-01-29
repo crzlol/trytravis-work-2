@@ -1,6 +1,6 @@
 ---
 - name: Install docker
-  hosts: docker-hosts
+  hosts: all
   become: true
   vars:
     pip_install_packages:

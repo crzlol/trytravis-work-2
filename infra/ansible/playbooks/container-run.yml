@@ -1,6 +1,6 @@
 ---
 - name: Run container
-  hosts: docker-hosts
+  hosts: all
   become: true
   
   vars_files:
