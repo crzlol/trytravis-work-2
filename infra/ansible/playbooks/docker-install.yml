@@ -1,0 +1,17 @@
+---
+- name: Install docker
+  hosts: docker-hosts
+  become: true
+  vars:
+    pip_install_packages:
+      - name: docker-py
+
+  tasks:
+    - name: Update repositories cache and install "python-apt" package
+      apt:
+        name: python-apt
+        update_cache: yes
+
+  roles:
+    - geerlingguy.docker
+    - geerlingguy.pip

@@ -1,0 +1,19 @@
+---
+- name: Run container
+  hosts: docker-hosts
+  become: true
+  
+  vars_files:
+    - "{{ inventory_dir }}/docker_registry_acc.yml"
+  tasks:
+    - name: Log into DockerHub
+      docker_login:
+        username: "{{ docker_user }}"
+        password: "{{ docker_pass }}"
+    - name: Create a data container
+      docker_container:
+        name: reddit
+        image: crzlol/otus-reddit:1.0
+        published_ports: 9292:9292
+        restart_policy: always
+  tags: run
