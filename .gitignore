@@ -20,3 +20,4 @@ vault.key
 .pytest_cache
 venv
 .vscode
+geerlingguy.docker
