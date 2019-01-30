@@ -15,3 +15,13 @@ crzlol microservices repository
  - Ansible работает через динамик инвентори
  - Создали шаблон для пакера
  - Щаблон пакера использует те же плейбуки Ansible, базовый образ с докером готовится с помощью without-tags (чтобы исключить таски с раскатом приложения)
+
+## Homework-14. Docker-3
+### Самостоятельное задание
+При сборке post-py приложений столкнулся с ошибкой "unable to execute 'gcc': No such file or directory".
+Решил через допольнительный RUN apk add --no-cache --virtual .build-deps gcc musl-dev.
+
+### Задание со *
+ - Другие сетевые алиасы указал через --network-alias
+ - Переменные окружения указал через --env
+ 
