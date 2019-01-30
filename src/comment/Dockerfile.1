@@ -1,10 +1,9 @@
 FROM alpine:latest
-RUN apk add --update ruby-full ruby-dev alpine-sdk ruby-bundler \
-    && gem install bundler --no-ri --no-rdoc
 
 ENV APP_HOME /app
-RUN mkdir $APP_HOME
-WORKDIR $APP_HOME
+RUN apk add --update ruby-full ruby-dev alpine-sdk ruby-bundler \
+    && gem install bundler --no-ri --no-rdoc \
+    && mkdir $APP_HOME && cd $APP_HOME
 
 ADD Gemfile* $APP_HOME/
 RUN bundle install
