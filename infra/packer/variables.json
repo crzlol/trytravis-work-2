@@ -1,0 +1,6 @@
+{
+    "project_id": "docker-230014",
+    "source_image_family": "ubuntu-1604-lts",
+    "machine_type": "n1-standard-1",
+    "tags": "docker-hosts"
+}

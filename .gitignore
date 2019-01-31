@@ -1,0 +1,24 @@
+*.idea
+packer/variables.json
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+.terraform/
+*.retry
+*.gcp.yml
+extended-study-224312-ffd6594a07bc.json
+gce.ini
+jdauphant.nginx
+vault.key
+# Vagrant & molecule
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+.pytest_cache
+venv
+.vscode
+geerlingguy.docker
+geerlingguy.pip
