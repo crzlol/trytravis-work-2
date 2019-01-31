@@ -1,0 +1,15 @@
+FROM alpine:latest
+
+ENV APP_HOME /app
+RUN apk add --update ruby-full ruby-dev alpine-sdk ruby-bundler \
+    && gem install bundler --no-ri --no-rdoc \
+    && mkdir $APP_HOME && cd $APP_HOME
+
+ADD Gemfile* $APP_HOME/
+RUN bundle install
+ADD . $APP_HOME
+
+ENV COMMENT_DATABASE_HOST comment_db
+ENV COMMENT_DATABASE comments
+
+CMD ["puma"]
