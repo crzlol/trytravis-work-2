@@ -2,6 +2,7 @@ version: '3.3'
 
 services:
   source:
+    build: ./source
     image: ${USERNAME}/source
     volumes:
       - source_app:/reddit/app
@@ -19,6 +20,8 @@ services:
     image: ${USERNAME}/ui:${UI_VERSION}
     volumes:
       - source_app:/reddit/app
+#    working_dir: /reddit/app/ui
+    command: "puma --debug -w 2"
     ports:
      - ${PUBLIC_PORT}:${PUBLIC_PORT}/tcp
     networks:
@@ -30,6 +33,7 @@ services:
     image: ${USERNAME}/post:${POST_VERSION}
     volumes:
       - source_app:/reddit/app
+    working_dir: /reddit/app/post-py
     networks:
       front_net:
         aliases:
@@ -42,6 +46,7 @@ services:
     image: ${USERNAME}/comment:${COMMENT_VERSION}
     volumes:
       - source_app:/reddit/app
+    working_dir: /reddit/app/comment
     command: "puma --debug -w 2"
     networks:
       front_net:
