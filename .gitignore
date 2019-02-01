@@ -22,3 +22,4 @@ venv
 .vscode
 geerlingguy.docker
 geerlingguy.pip
+*.env
