@@ -1,35 +1,7 @@
 version: '3.3'
 
 services:
-  post_db:
-    image: mongo:3.2
-    volumes:
-     - post_db:/data/db
-    networks:
-      back_net:
-        aliases:
-         - post_db
-         - comment_db
-  ui:
-    image: ${USERNAME}/ui:${UI_VERSION}
-    ports:
-     - ${PUBLIC_PORT}:${PUBLIC_PORT}/tcp
-    networks:
-     - front_net
-  post:
-    image: ${USERNAME}/post:${POST_VERSION}
-    networks:
-      front_net:
-        aliases:
-         - post
-      back_net:
-  comment:
-    image: ${USERNAME}/comment:${COMMENT_VERSION}
-    networks:
-      front_net:
-        aliases:
-         - comment
-      back_net:  
+
   prometheus:
     image: ${USERNAME}/prometheus
     ports:
@@ -41,9 +13,7 @@ services:
       - '--storage.tsdb.path=/prometheus'
       - '--storage.tsdb.retention=1d'
     networks:
-      front_net:
-        aliases:
-         - prometheus
+      - front_net
   node-exporter:
     image: prom/node-exporter:v0.15.2
     user: root
@@ -58,12 +28,36 @@ services:
     networks:
       front_net:
         aliases:
-         - node-exporter
-
+         - node
+  cadvisor:
+    image: google/cadvisor:v0.29.0
+    volumes:
+      - '/:/rootfs:ro'
+      - '/var/run:/var/run:rw'
+      - '/sys:/sys:ro'
+      - '/var/lib/docker/:/var/lib/docker:ro'
+    ports:
+      - '8080:8080'
+    networks:
+      - front_net
+  grafana:
+    image: grafana/grafana:5.0.0
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=secret
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    networks:
+      - front_net
 
 volumes:
   post_db:
   prometheus_data:
+  grafana_data:
 
 networks:
   back_net:
@@ -74,4 +68,3 @@ networks:
     ipam:
       config:
       - subnet: 10.0.1.0/24
-
