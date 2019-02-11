@@ -29,7 +29,6 @@ services:
       front_net:
         aliases:
          - node
-  
 
 volumes:
   post_db:
