@@ -119,4 +119,3 @@ P.S. почему-то при такой схеме приложение ui по
  - Сделали NetworkPolicy для MongoDB
  - Сделали PersistentVolume для MongoDB
  - Сделали PersistentVolumeClaim для MongoDB и StorageClass с SSD
-
