@@ -109,3 +109,14 @@ P.S. почему-то при такой схеме приложение ui по
  - Создали кластер в GKE
  - Выкатили приложения туда
  - Добавили роль в RBAC для работы дашборда
+
+ ## Homework-23. Kubernetes-3
+### Самостоятельное задание
+ - Проверили работу kube-dns
+ - Сделали Load Balancer для UI
+ - Сделали Ingress для UI
+ - Настроили TLS для Ingress
+ - Сделали NetworkPolicy для MongoDB
+ - Сделали PersistentVolume для MongoDB
+ - Сделали PersistentVolumeClaim для MongoDB и StorageClass с SSD
+
